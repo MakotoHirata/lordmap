@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+
+<html lang="ja" dir="ltr">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    {% load static %}
+    <link rel="stylesheet" href='{% static "/css/style.css" %}' />
+
+</head>
+
+<body>
+    {% block content %}
+    <h1>LORDMAP</h1>
+
+    <div class="container mt-3">
+        {% for item in object_list %}
+        <div class="alert alert-success" role="alert">
+            <p class="title"><a href="{% url 'detail' item.pk %}">{{item.title}}</a></p>
+            <p class="content">{{item.content}}</p>
+            <p>投稿者：{{item.user.username}}</p>
+        </div>
+        {% endfor %}
+    </div>
+    {% endblock content %}
+</body>
+
+</html>

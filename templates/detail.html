@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+
+<html lang="ja" dir="ltr">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    {% load static %}
+    <link rel="stylesheet" href='{% static "/css/style.css" %}' />
+
+</head>
+
+<body>
+    {% block content %}
+    <div class="container">
+        <div class="alert alert-success" role="alert">
+            <p>タイトル：{{object.title}}</p>
+            <p>コメント：{{object.content}}</p>
+            <p>投稿者：{{object.user}}</p>
+
+
+            {% if object.user == request.user %}
+            <a href="{% url 'update' object.pk %}" class="btn btn-primary ms-3" tabindex="-1" role="button"
+                aria-disabled="true">編集</a>
+            {% endif %}
+        </div>
+    </div>
+    {% endblock content %}
+</body>
+
+</html>

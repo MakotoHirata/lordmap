@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+
+<html lang="ja" dir="ltr">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    {% load static %}
+    <link rel="stylesheet" href='{% static "/css/style.css" %}' />
+
+</head>
+
+<body>
+    <header>
+        <a href="{% url 'home' %}">ホーム</a>
+        <a href="{% url 'create' %}">投稿</a>
+        <a href="{% url 'mypost' %}">マイページ</a>
+        <a href="{% url 'login' %}">ログイン</a>
+        <a href="{% url 'register' %}">登録</a>
+    </header>
+
+
+    <h1>
+        <span color="red">{{ user.username }}</span>さんようこそ！！
+    </h1>
+    <img src="{{ user.profile_pics.url }}" alt="">
+    <h2>{{ account.first_name }}</h2>
+    <p> ログアウトは
+        <a href="{% url 'logout' %}">こちら</a>
+    </p>
+
+    <div id="app"></div>
+    <script type="text/javascript" src="{% static 'js/bundle.js' %}"></script>
+
+    <div class="container mt-3">
+        {% for item in object_list %}
+        <div class="alert alert-success" role="alert">
+            <p>タイトル：<a href="{% url 'detail' item.pk %}">{{item.title}}</a></p>
+            <p>投稿者：{{item.user.username}}</p>
+            <p>{{item.user.last_name}}</p>
+        </div>
+        {% endfor %}
+    </div>
+
+</body>
+
+</html>

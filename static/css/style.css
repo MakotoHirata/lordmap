@@ -1,0 +1,43 @@
+body {
+  background-color: rgb(28, 4, 55);
+  color: white;
+}
+
+a {
+  color: white;
+}
+
+h1 {
+  color: white;
+  padding: 2% 4%;
+  margin: 5% auto;
+  text-align: center;
+  font-size: 50px;
+  line-height: 100%;
+}
+
+.title {
+  font-size: 20px;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.content {
+  text-align: left;
+}
+
+.alert-success {
+  border: solid 10px rgb(199, 199, 199);
+  padding: 1% 2%;
+  margin: 2%;
+  box-shadow: 0.2em 0.2em 0.3em rgba(0, 0, 0, 0.521);
+  width: 20%;
+  text-align: center;
+}
+
+img {
+  width: 10%;
+}/*# sourceMappingURL=style.css.map */

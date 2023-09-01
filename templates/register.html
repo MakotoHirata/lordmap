@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ja" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" href='{% static "snsapp_css/style.css" %}' />
+    <title></title>
+</head>
+
+<body>
+    <h1>新規登録</h1>
+
+    {% if AccountCreate %}
+    <h1>登録完了!</h1>
+
+    {% else %}
+    <div class="reg">
+        <table class="reg_form">
+
+            <form enctype="multipart/form-data" method="post">
+                {% csrf_token %}
+                {{ account_form.as_table }}
+                {{ add_account_form.as_table }}
+                <tr>
+                    <td></td>
+                    <td>
+                        <input class="btn" type="submit" name="" value="登録">
+                    </td>
+                </tr>
+            </form>
+
+        </table>
+    </div>
+    {% endif %}
+
+</body>
+
+</html>
